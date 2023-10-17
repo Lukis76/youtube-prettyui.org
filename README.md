@@ -381,9 +381,14 @@ npx tsc --init
 }
 ```
 
-7. utilizaremos storybook para tener un buen seguimiennto y documentacion de nuestros componentes
+7. utilizaremos storybook para tener un buen seguimiennto y documentacion de nuestros componentes pero antes crearemis la carpeta donde lo ubicaremos
 
 ```bash
+# creamos la carpeta
+mkdir packages/storybook
+# nos desplazamos a la ubicacion
+cd packages/storybook
+# intslaremos storybook con el contuctor del mismo
 pnpm dlx storybook@latest init
 ```
 
