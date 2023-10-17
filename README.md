@@ -18,7 +18,7 @@ cd ~/Documents/code/projects
 # creamos la carpeta contenedora del projecto
 mkdir carteta-contenedora
 # nos desplazamos dentro de la carpeta del project
-cd carteta-contenedora
+cd ./carteta-contenedora
 ```
 
 2. inicializamos nuestro proyecto creando nuestro **package.json** y creamos nuestro .gitignore
@@ -386,7 +386,7 @@ npx tsc --init
 # creamos la carpeta
 mkdir -p packages/storybook
 # nos desplazamos a la ubicacion
-cd packages/storybook
+cd ./packages/storybook
 # inicializamos el espacio de trabajo
 pnpm init
 # instalmos dependencias
@@ -635,3 +635,16 @@ module.exports = function main(plop) {
   })
 }
 ```
+
+ahora tendremos que configurar nuestros templates o platillas de [.hbs](https://handlebarsjs.com) que los ubicaremos en un carpeta plop en ruestro root.
+
+```bash
+mkdir -p plop/component
+cd ./plop/component
+```
+empesemos por el package.json de nuestro workspace.
+
+```json
+
+```
+
