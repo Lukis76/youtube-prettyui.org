@@ -642,9 +642,120 @@ ahora tendremos que configurar nuestros templates o platillas de [.hbs](https://
 mkdir -p plop/component
 cd ./plop/component
 ```
+
 empesemos por el package.json de nuestro workspace.
 
-```json
+```hbs
+// package.json.hbs
 
+{
+  "name": "@prettyui.org/{{componentName}}",
+  "version": "0.0.1",
+  "description": "{{description}}",
+  "keywords": ["{{componentName}}"],
+  "author": "example name <examplemail@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
+
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "yarn build:fast -- --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
 ```
 
+procedamos con nuestro tasconfig
+
+```hbs
+// tsconfig.json.hbs
+
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": ["src", "index.ts"]
+}
+```
+
+configuremos un readme basico
+
+````hbs
+   <!-- README.md.hbs -->
+
+# @prettyui.org/{{componentName}}
+
+A Quick description of the component
+
+> This is an internal utility, not intended for public usage.
+
+## Installation
+
+```sh
+  yarn add @prettyui.org/{{componentName}}
+
+  # or
+
+  npm i @prettyui.org/{{componentName}}
+
+```
+````
+
+procedamos con [tsup](tsup.egoist.dev) es quien compilara nuesto componente.
+este tsup tiene un configuracion particular que utilizaremos en componentes de next.js apartir de su version 13 que no obliga a colocarle en encavesaso "use client" en los archivos que se rederizaran del lado del cliente.
+este opcion benner ara esta accion por sosotros en componentes que no la nesesitemos podremos comentar estta opcion, que recomiendo hacerlo ya que pudes tener conflicos en algunos teniendo conponentes de servidor con el banner "use client"
+
+```hbs
+// tsup.config.ts.hbs
+
+import { defineConfig } from 'tsup'
+
+export default defineConfig({
+  clean: true,
+  minify: true,
+  target: 'es2022',
+  format: ['cjs', 'esm'],
+  banner: { js: '"use client";' },
+})
+```
+
+posigamos creando el index.ts del workspace y el archivo de nuestro componente
+
+```hbs
+import {forwardRef} from "react";
+
+export interface {{capitalize componentName}}Props {}
+
+const {{capitalize componentName}} = forwardRef<"div", {{capitalize componentName}}Props>((props, ref) => {
+
+const Comp = 'div'
+  return (
+    <Comp ref={ref} className={styles} {...otherProps}>
+      {children}
+    </Comp>
+  );
+});
+
+{{capitalize componentName}}.displayName = "prettyUI.{{capitalize componentName}}";
+
+export default {{capitalize componentName}};
+```
