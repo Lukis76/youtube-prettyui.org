@@ -1,6 +1,6 @@
 # libary components
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kmFr_8U81vU?si=ubaV5uGL9FwmrDn5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kmFr_8U81vU?si=ubaV5uGL9FwmrDn5" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
 ¡Únete a esta emocionante transmisión en vivo donde te guiaré a través de la creación de una librería de componentes de Next.js con TypeScript y Tailwind CSS desde cero! No solo aprenderás a construir componentes reutilizables, sino que también exploraremos cómo separarlos por espacios de trabajo para una organización impecable. Pero eso no es todo, nuestro objetivo es compartir esta librería con la comunidad, por lo que aprenderemos cómo publicarla en NPM para que cualquiera pueda acceder a estas poderosas herramientas.
 
