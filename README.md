@@ -385,10 +385,58 @@ npx tsc --init
 
 ```bash
 # creamos la carpeta
-mkdir packages/storybook
+mkdir -p packages/storybook
 # nos desplazamos a la ubicacion
 cd packages/storybook
-# intslaremos storybook con el contuctor del mismo
-pnpm dlx storybook@latest init
+# inicializamos el espacio de trabajo
+pnpm init
 ```
+
+```json
+// package.json
+
+{
+  "name": "@prettyui.org/storybook",
+  "version": "0.0.1",
+  "description": "The react components storybook ",
+  "keywords": [
+    "storybook"
+  ],
+  "author": "example name <examplename@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": true,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+
+  "scripts": {
+    "dev": "pnpm storybook dev -p 6006",
+    "build": "pnpm storybook build",
+    "start": "pnpm dlx http-server storybook-static"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "vite": "^4"
+  },
+  "tsup": {
+    "clean": true,
+    "minify": true,
+    "target": "es2022",
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  }
+}
+
+```
+
+
 
