@@ -483,3 +483,9 @@ const config = {
 
 export default config;
 ```
+9. instalemos tailwindcss en nuesto workspace de storybook
+
+```bash
+pnpm add -D tailwindcss postcss autoprefixer
+pnpx tailwindcss init -p
+```
