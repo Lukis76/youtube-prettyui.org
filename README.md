@@ -745,6 +745,8 @@ export default defineConfig({
 posigamos creando el index.ts del workspace y el archivo de nuestro componente
 
 ```hbs
+//src/componentName.tsx
+
 import {forwardRef} from "react";
 
 export interface {{capitalize componentName}}Props {}
