@@ -379,8 +379,10 @@ npx tsc --init
   "exclude": ["**/node_modules", "**/dist"]
 }
 ```
-
-7. utilizaremos storybook para tener un buen seguimiennto y documentacion de nuestros componentes pero antes crearemis la carpeta donde lo ubicaremos
+<details>
+7. utilizaremos storybook para tener un buen seguimiennto y documentacion de nuestros componentes pero antes crearemos la carpeta donde lo ubicaremos, como no es una aplicacion en si lo intalareemos de manera manual pero en caso de que queras aplicarlo en alguna aplicacion generada con vite, createreact.app, next, etc.
+podremos utilizar el comando __pnpm storybook@latest init__ este comando detectara el tipo de poyecto en el que estamos y generara una configuracion muy pararesida a la que crearemos a continuacion de manera automatica
+</details>
 
 ```bash
 # creamos la carpeta
@@ -434,53 +436,57 @@ pnpm install
 8. modifiquemos el main de muestro storybook e instalemos la siguientes dependencias
 
 ```bash
-pnpm add -D @storybook/addon-a11y @storybook/addon-actions @storybook/addon-docs @storybook/addon-essentials @storybook/addon-links @storybook/addon-mdx-gfm @storybook/cli @storybook/react @storybook/react-vite @storybook/theming autoprefixer storybook storybook-dark-mode
+pnpm add -D @storybook/addon-a11y @storybook/addon-actions @storybook/addon-docs @storybook/addon-essentials @storybook/addon-links @storybook/cli @storybook/react @storybook/react-vite @storybook/theming autoprefixer storybook storybook-dark-mode
 
 
 ```
 
-```js
-// .storybook
-/** @type { import('@storybook/react-vite').StorybookConfig } */
+```ts
+// .storybook/main
 
-import { dirname, join, resolve } from 'path'
+import type { StorybookConfig } from '@storybook/react-vite'
 
-/**
- * La función devuelve la ruta absoluta de un valor determinado resolviéndola y uniéndola con el
- * archivo 'package.json'.
- * @param value - El parámetro "valor" es una cadena que representa la ruta del archivo.
- * @returns La ruta absoluta del directorio que contiene el archivo "package.json".
- */
-function getAbsolutePath(value) {
-  return dirname(resolve(join(value, 'package.json')))
-}
-
-const config = {
+const config: StorybookConfig = {
   stories: [
     '../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)',
     '../../core/**/stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   staticDirs: ['../public'],
   addons: [
-    getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('storybook-dark-mode'),
-    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    '@storybook/addon-a11y',
+    '@storybook/addon-essentials',
+    '@storybook/addon-links',
+    'storybook-dark-mode',
   ],
-  framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
-    options: {},
-  },
+  framework: '@storybook/react-vite',
   core: {
     disableTelemetry: true,
   },
   typescript: {
-    reactDocgen: false,
+    reactDocgen: true,
   },
 }
 
 export default config
+```
+```ts
+// .storybook/preview
+
+import type { Preview } from '@storybook/react'
+
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background\color)$/i,
+        date: /Date$/i,
+      }
+    }
+  }
+}
+
+export default preview
 ```
 
 9. instalemos tailwindcss en nuesto workspace de storybook
