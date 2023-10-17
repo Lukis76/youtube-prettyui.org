@@ -507,3 +507,5 @@ const config: Config = {
 }
 export default config
 ```
+
+10. ahora instalamos y configuraremos [plop](https://plopjs.com/documentation/)
