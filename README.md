@@ -443,8 +443,7 @@ pnpm add -D @storybook/addon-a11y @storybook/addon-actions @storybook/addon-docs
 // .storybook
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 
-import { dirname, join, resolve } from 'path';
-
+import { dirname, join, resolve } from 'path'
 
 /**
  * La función devuelve la ruta absoluta de un valor determinado resolviéndola y uniéndola con el
@@ -453,8 +452,8 @@ import { dirname, join, resolve } from 'path';
  * @returns La ruta absoluta del directorio que contiene el archivo "package.json".
  */
 function getAbsolutePath(value) {
-  return dirname(resolve(join(value, 'package.json')));
-};
+  return dirname(resolve(join(value, 'package.json')))
+}
 
 const config = {
   stories: [
@@ -479,13 +478,32 @@ const config = {
   typescript: {
     reactDocgen: false,
   },
-};
+}
 
-export default config;
+export default config
 ```
+
 9. instalemos tailwindcss en nuesto workspace de storybook
 
 ```bash
 pnpm add -D tailwindcss postcss autoprefixer
 pnpx tailwindcss init -p
+```
+
+rellenemos nuestro tailwind.config.ts con algunos path de rutas que podremos utilizar despues podremos expandir esta configuracion.
+
+```ts
+// tailwind.config.ts
+
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
+  content: [
+    '../components/*/src/**/*.{js,jsx,ts,tsx}',
+    '../components/*/stories/**/*.{js,jsx,ts,tsx}',
+  ],
+  darkMode: 'class',
+  plugins: [],
+}
+export default config
 ```
