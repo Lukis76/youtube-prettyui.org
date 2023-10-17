@@ -383,6 +383,7 @@ npx tsc --init
 7. utilizaremos storybook para tener un buen seguimiennto y documentacion de nuestros componentes pero antes crearemos la carpeta donde lo ubicaremos, como no es una aplicacion en si lo intalareemos de manera manual pero en caso de que queras aplicarlo en alguna aplicacion generada con vite, createreact.app, next, etc.
 podremos utilizar el comando __pnpm storybook@latest init__ este comando detectara el tipo de poyecto en el que estamos y generara una configuracion muy pararesida a la que crearemos a continuacion de manera automatica
 </details>
+<summary>hola como estas esto es un test ?</summary>
 
 ```bash
 # creamos la carpeta
