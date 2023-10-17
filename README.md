@@ -709,7 +709,7 @@ procedamos con nuestro tasconfig
 configuremos un readme basico
 
 ````hbs
-   <!-- README.md.hbs -->
+// README.md.hbs
 
 # @prettyui.org/{{componentName}}
 
