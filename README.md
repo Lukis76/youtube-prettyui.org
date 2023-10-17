@@ -42,8 +42,7 @@ pnpm init
     "github": "https://github.com/Lukis76",
     "porfolio": "https://rocketdev.vercel.app/es"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "devDependencies": {
     "@react-types/link": "^3.5.0",
     "@react-types/shared": "^3.21.0",
@@ -390,6 +389,8 @@ mkdir -p packages/storybook
 cd packages/storybook
 # inicializamos el espacio de trabajo
 pnpm init
+# instalmos dependencias
+pnpm install
 ```
 
 ```json
@@ -399,16 +400,12 @@ pnpm init
   "name": "@prettyui.org/storybook",
   "version": "0.0.1",
   "description": "The react components storybook ",
-  "keywords": [
-    "storybook"
-  ],
+  "keywords": ["storybook"],
   "author": "example name <examplename@gmail.com>",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": true,
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },
@@ -429,14 +426,60 @@ pnpm init
     "clean": true,
     "minify": true,
     "target": "es2022",
-    "format": [
-      "cjs",
-      "esm"
-    ]
+    "format": ["cjs", "esm"]
   }
 }
+```
+
+8. modifiquemos el main de muestro storybook e instalemos la siguientes dependencias
+
+```bash
+pnpm add -D @storybook/addon-a11y @storybook/addon-actions @storybook/addon-docs @storybook/addon-essentials @storybook/addon-links @storybook/addon-mdx-gfm @storybook/cli @storybook/react @storybook/react-vite @storybook/theming autoprefixer storybook storybook-dark-mode
+
 
 ```
 
+```js
+// .storybook
+/** @type { import('@storybook/react-vite').StorybookConfig } */
+
+import { dirname, join, resolve } from 'path';
 
 
+/**
+ * La función devuelve la ruta absoluta de un valor determinado resolviéndola y uniéndola con el
+ * archivo 'package.json'.
+ * @param value - El parámetro "valor" es una cadena que representa la ruta del archivo.
+ * @returns La ruta absoluta del directorio que contiene el archivo "package.json".
+ */
+function getAbsolutePath(value) {
+  return dirname(resolve(join(value, 'package.json')));
+};
+
+const config = {
+  stories: [
+    '../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)',
+    '../../core/**/stories/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
+  staticDirs: ['../public'],
+  addons: [
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
+  ],
+  framework: {
+    name: getAbsolutePath('@storybook/react-vite'),
+    options: {},
+  },
+  core: {
+    disableTelemetry: true,
+  },
+  typescript: {
+    reactDocgen: false,
+  },
+};
+
+export default config;
+```
