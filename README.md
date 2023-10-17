@@ -1,7 +1,7 @@
 # libary components
 
 
-[![](https://markdown-videos.deta.dev/youtube/ssMNCIUPOLI)](https://youtu.be/ssMNCIUPOLI?si=BMgiUm_eEzVhxKQw)
+[![](https://markdown-videos.deta.dev/youtube/ssMNCIUPOLI)](https://youtu.be/ssMNCIUPOLI)
 
 
 ¡Únete a esta emocionante transmisión en vivo donde te guiaré a través de la creación de una librería de componentes de Next.js con TypeScript y Tailwind CSS desde cero! No solo aprenderás a construir componentes reutilizables, sino que también exploraremos cómo separarlos por espacios de trabajo para una organización impecable. Pero eso no es todo, nuestro objetivo es compartir esta librería con la comunidad, por lo que aprenderemos cómo publicarla en NPM para que cualquiera pueda acceder a estas poderosas herramientas.
