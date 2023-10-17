@@ -771,3 +771,4 @@ const Comp = 'div'
 
 export default {{capitalize componentName}};
 ```
+> tenen cuenta que esto solo crea una estructura basica y no instala las dependencias
