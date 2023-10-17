@@ -644,7 +644,7 @@ mkdir -p plop/component
 cd ./plop/component
 
 mkdir -p src stories
-touch src/{{componentName}}.tsx.hbs stories/{{componentName}}.tsx.hbs index.ts.hbs package.json.hbs tsconfig.json.hbs README.md.hbs tsup.config.ts.hbs
+touch src/{{componentName}}.tsx.hbs stories/{{componentName}}.stories.tsx.hbs index.ts.hbs package.json.hbs tsconfig.json.hbs README.md.hbs tsup.config.ts.hbs
 ```
 
 empesemos por el package.json de nuestro workspace.
