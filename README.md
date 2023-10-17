@@ -752,15 +752,16 @@ posigamos creando el index.ts del workspace y el archivo de nuestro componente
 ```hbs
 //src/componentName.tsx
 
-import {forwardRef} from "react";
+import {HTMLAttributes, forwardRef} from "react";
 
-export interface {{capitalize componentName}}Props {}
+export interface {{capitalize componentName}}Props extends  HTMLAttributes<HTMLDivElement> {}
 
-const {{capitalize componentName}} = forwardRef<"div", {{capitalize componentName}}Props>((props, ref) => {
+const {{capitalize componentName}} = forwardRef<HTMLDivElement, {{capitalize componentName}}Props>((props, ref) => {
+  const {className, children, ...otherProps} = props
 
 const Comp = 'div'
   return (
-    <Comp ref={ref} className={styles} {...otherProps}>
+    <Comp ref={ref} className={className} {...otherProps}>
       {children}
     </Comp>
   );
