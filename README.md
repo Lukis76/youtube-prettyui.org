@@ -637,13 +637,18 @@ module.exports = function main(plop) {
 ```
 
 ahora tendremos que configurar nuestros templates o platillas de [.hbs](https://handlebarsjs.com) que los ubicaremos en un carpeta plop en ruestro root.
-creemos los archivos 
+creemos los archivos e instalamos nuestro compilador
 
 ```bash
+# instalamos maneger de compilacion
+pnpm add -D tsup
+# creamos carpeta template component
 mkdir -p plop/component
+# nos desplazamos a la carpera contenedora del template component
 cd ./plop/component
-
+# creamos la estructura de carpetas
 mkdir -p src stories
+# creamos la estructura de archivos
 touch src/{{componentName}}.tsx.hbs stories/{{componentName}}.stories.tsx.hbs index.ts.hbs package.json.hbs tsconfig.json.hbs README.md.hbs tsup.config.ts.hbs
 ```
 
