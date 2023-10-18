@@ -1,11 +1,12 @@
 import * as React from "react";
 import Button from "../src/button";
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { test, expect, vi, describe } from "vitest";
+import { test, expect, vi, describe, afterEach } from "vitest";
 
 // Renders a button element
 describe("Button", () => {
+  afterEach(cleanup);
   test("should render correctly", () => {
     const wrapper = render(<Button>Click me</Button>);
     expect(() => wrapper.unmount()).not.toThrow();

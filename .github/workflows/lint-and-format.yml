@@ -28,7 +28,11 @@ jobs:
 
       - name: Lint and Format
         run: |
-          npm run lint 
+          pnpm run lint 
+
+      - name: Executing Tests
+        run: |
+          pnpm test
 
       # - name: Commit and Push Changes
       #   run: |
@@ -39,4 +43,4 @@ jobs:
       #     git push -u origin/master
 
       - name: Complete
-        run: echo "Linting and formatting completed"
+        run: echo "Linting and formatting with tests completed"
