@@ -3,7 +3,7 @@ name: Lint and Format
 on:
   push:
     branches:
-      - main # Cambia esto según la rama que quieras monitorear
+      - master # Cambia esto según la rama que quieras monitorear
 
 jobs:
   lint-and-format:
@@ -24,12 +24,12 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Lint and Format
         run: |
-          npm run lint # Asegúrate de que este comando coincide con tu configuración de linting
-          npm run format # Asegúrate de que este comando coincide con tu configuración de formateo
+          npm run lint
+          npm run format
 
       - name: Commit and Push Changes
         run: |
