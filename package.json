@@ -18,7 +18,7 @@
     "test": "vitest",
     "lint": "eslint",
     "format": "prettier",
-    "co": "sui-mono commit"
+    "co": "sui-mono"
   },
   "devDependencies": {
     "@react-types/link": "^3.5.0",
