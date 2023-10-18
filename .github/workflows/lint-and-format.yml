@@ -30,13 +30,13 @@ jobs:
         run: |
           npm run lint 
 
-      - name: Commit and Push Changes
-        run: |
-          git config --global user.email "kiu.manoguerra@gmail.com"
-          git config --global user.name "lucas manoguerra"
-          git add .
-          git commit -m "Lint and Format code"
-          git push -u origin/master
+      # - name: Commit and Push Changes
+      #   run: |
+      #     git config --global user.email "kiu.manoguerra@gmail.com"
+      #     git config --global user.name "lucas manoguerra"
+      #     git add .
+      #     git commit -m "Lint and Format code"
+      #     git push -u origin/master
 
       - name: Complete
         run: echo "Linting and formatting completed"
