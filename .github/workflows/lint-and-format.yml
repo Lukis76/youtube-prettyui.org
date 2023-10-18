@@ -1,0 +1,43 @@
+name: Lint and Format
+
+on:
+  push:
+    branches:
+      - main # Cambia esto según la rama que quieras monitorear
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install package manager
+        uses: pnpm/action-setup@v2.4.0
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint and Format
+        run: |
+          npm run lint # Asegúrate de que este comando coincide con tu configuración de linting
+          npm run format # Asegúrate de que este comando coincide con tu configuración de formateo
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "kiu.manoguerra@gmail.com"
+          git config --global user.name "lucas manoguerra"
+          git add .
+          git commit -m "Lint and Format code"
+          git push
+
+      - name: Complete
+        run: echo "Linting and formatting completed"

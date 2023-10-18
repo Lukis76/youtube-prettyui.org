@@ -1,0 +1,29 @@
+{
+  "name": "@prettyui.org/button",
+  "version": "0.0.1",
+  "description": "component button",
+  "keywords": ["button"],
+  "author": "example name <examplemail@gmail.com>",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
+
+  "scripts": {
+    "dev": "pnpm storybook dev -p 6006",
+    "build": "pnpm storybook build",
+    "start": "pnpm dlx http-server storybook-static"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "react": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
