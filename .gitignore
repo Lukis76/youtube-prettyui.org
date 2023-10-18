@@ -3,6 +3,7 @@
 # dependencies
 node_modules
 dist
+/html/
 /dist/pn
 /.pnp
 .pnp.js

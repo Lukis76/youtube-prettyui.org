@@ -78,6 +78,17 @@ describe("Button", () => {
   //   expect(wrapper.getByTestId("end-content")).toBeInTheDocument();
   // });
 
+  test("should renders with end icon", () => {
+    const wrapper = render(
+      <Button>
+        <span data-testid="end-content">start icon</span>
+        Click me
+      </Button>,
+    );
+
+    expect(wrapper.getByTestId("end-content")).toBeInTheDocument();
+  });
+
   test("should renders the proper type attribute", () => {
     const wrapper = render(<Button type="submit">Click me</Button>);
 
