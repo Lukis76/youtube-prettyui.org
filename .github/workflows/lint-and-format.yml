@@ -36,7 +36,7 @@ jobs:
           git config --global user.name "lucas manoguerra"
           git add .
           git commit -m "Lint and Format code"
-          git push
+          git push -u origin/master
 
       - name: Complete
         run: echo "Linting and formatting completed"
