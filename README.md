@@ -1,3 +1,5 @@
+[![Lint and Format](https://github.com/Lukis76/youtube-prettyui.org/actions/workflows/lint-and-format.yml/badge.svg)](https://github.com/Lukis76/youtube-prettyui.org/actions/workflows/lint-and-format.yml)
+
 # libary components
 
 [![Alt text](https://img.youtube.com/vi/example_code/0.jpg)](https://www.youtube.com/watch?v=example_code)

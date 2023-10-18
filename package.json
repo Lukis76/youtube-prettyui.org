@@ -12,14 +12,18 @@
   },
   "scripts": {
     "plop": "plop",
-    "sb": "pnpm --filter @prettyui.org/storybook dev",
+    "sb:dev": "pnpm --filter @prettyui.org/storybook dev",
+    "sb:build": "pnpm --filter @prettyui.org/storybook build",
+    "test:button": "pnpm --filter @prettyui.org/button test",
     "test": "vitest",
     "lint": "eslint",
-    "format": "prettier"
+    "format": "prettier",
+    "co": "sui-mono commit"
   },
   "devDependencies": {
     "@react-types/link": "^3.5.0",
     "@react-types/shared": "^3.21.0",
+    "@s-ui/mono": "^2.41.0",
     "@storybook/addon-a11y": "^7.5.0",
     "@storybook/addon-actions": "^7.5.0",
     "@storybook/addon-docs": "^7.5.0",

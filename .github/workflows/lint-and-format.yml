@@ -11,7 +11,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install package manager
         uses: pnpm/action-setup@v2.4.0
@@ -24,7 +26,7 @@ jobs:
           node-version: 18
 
       - name: Install Dependencies
-        run: pnpm install
+        run: pnpm ci
 
       - name: Lint and Format
         run: |
@@ -41,6 +43,8 @@ jobs:
       #     git add .
       #     git commit -m "Lint and Format code"
       #     git push -u origin/master
+
+      
 
       - name: Complete
         run: echo "Linting and formatting with tests completed"
