@@ -15,7 +15,7 @@
     "sb": "pnpm --filter @prettyui.org/storybook dev",
     "test": "vitest",
     "lint": "eslint",
-    "format": "prettier --write"
+    "format": "prettier"
 
   },
   "devDependencies": {
